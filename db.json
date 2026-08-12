@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Nguyễn Văn An",
+      "email": "an@gmail.com",
+      "password": "123456",
+      "avatar": "https://i.pravatar.cc/150?img=1",
+      "bio": "Frontend Developer",
+      "role": "user"
+    },
+    {
+      "id": "2",
+      "name": "Trương Tuấn Dũng",
+      "email": "dung@gmail.com",
+      "password": "123456",
+      "avatar": "https://i.pravatar.cc/150?img=2",
+      "bio": "React Developer",
+      "role": "user"
+    },
+    {
+      "id": "3",
+      "name": "Lê Minh Anh",
+      "email": "anh@gmail.com",
+      "password": "123456",
+      "avatar": "https://i.pravatar.cc/150?img=3",
+      "bio": "UI/UX Designer",
+      "role": "user"
+    },
+    {
+      "id": "4",
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "avatar": "https://i.pravatar.cc/150?img=4",
+      "bio": "System Administrator",
+      "role": "admin"
+    }
+  ],
+  "messages": [
+    {
+      "id": "1",
+      "senderId": "1",
+      "receiverId": "2",
+      "content": "Chào Dũng, dạo này sao rồi?",
+      "createdAt": "2026-08-12T08:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "senderId": "2",
+      "receiverId": "1",
+      "content": "Mình vẫn ổn, đang làm project React.",
+      "createdAt": "2026-08-12T08:01:00.000Z"
+    },
+    {
+      "id": "3",
+      "senderId": "3",
+      "receiverId": "2",
+      "content": "Bạn đang làm project gì vậy?",
+      "createdAt": "2026-08-12T08:05:00.000Z"
+    }
+  ]
+}
