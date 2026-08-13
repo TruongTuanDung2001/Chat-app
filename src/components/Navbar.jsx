@@ -5,11 +5,9 @@ export default function Navbar(){
         <div className="navbar">
             <ul>
                 <li>
-                    <Link to="/"></Link>
-                </li>
-                <li>
                     <Link to="/login">Login</Link>
                 </li>
+                <br /> <hr />
                 <li>
                     <Link to="/chat">Chat</Link>
                 </li>
@@ -17,10 +15,14 @@ export default function Navbar(){
                     <Link to="/profile">Profile</Link>
                 </li>
                 <li>
-                    <Link to="/users">User profile</Link>
+                    <Link to="/users/1">User profile</Link>
+                </li>
+                <br /> <hr />
+                <li>
+                    <Link to="/admin/dashboard">Manager dashboard</Link>
                 </li>
                 <li>
-                    <Link to="/admin">Admin</Link>
+                    <Link to="/admin/messages">Manager messages</Link>
                 </li>
                 <li>
                     <Link to="/admin/users">Manager users</Link>
