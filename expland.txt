@@ -1,0 +1,78 @@
+1. Chốt routes
+/login
+
+/chat
+/chat/:userId
+
+/profile
+/users/:id
+
+/admin
+/admin/users
+/admin/messages
+
+=> giải thích
+| Route             | Chức năng              |
+| ----------------- | ---------------------- |
+| `/login`          | Đăng nhập              |
+| `/chat`           | Màn hình chat          |
+| `/chat/:userId`   | Chat với một user      |
+| `/profile`        | Profile của mình       |
+| `/users/:id`      | Xem profile người khác |
+| `/admin`          | Dashboard              |
+| `/admin/users`    | Quản lý user           |
+| `/admin/messages` | Quản lý message        |
+===
+
+2. Quản lý thư mục
+layouts/
+├── MainLayout.jsx
+└── AdminLayout.jsx
+
+MainLayout dùng cho: 
+/chat
+/profile
+/users/:id
+
+Dùng cho: 
+Navbar
+   ↓
+<Outlet />
+
+AdminLayout dùng cho:
+/admin
+/admin/users
+/admin/messages
+
+Dùng cho:
+AdminNavbar / Sidebar
+        ↓
+     <Outlet />
+
+Bộ khung:
+src/
+├── components/
+├── layouts/
+│   ├── MainLayout.jsx
+│   └── AdminLayout.jsx
+│
+├── pages/
+│   ├── Login/
+│   │   └── Login.jsx
+│   │
+│   ├── Chat/
+│   │   └── Chat.jsx
+│   │
+│   ├── Profile/
+│   │   └── Profile.jsx
+│   │
+│   ├── UserProfile/
+│   │   └── UserProfile.jsx
+│   │
+│   └── Admin/
+│       ├── Dashboard.jsx
+│       ├── Users.jsx
+│       └── Messages.jsx
+│
+├── App.jsx
+└── main.jsx
