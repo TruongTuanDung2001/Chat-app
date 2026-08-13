@@ -11,6 +11,8 @@ import UserProfile from "./pages/UserProfile/UserProfile";
 import DashboardAdminPage from "./pages/Admin/Dashboard";
 import MessagesAdminPage from "./pages/Admin/Messages";
 import UsersAdminPage from "./pages/Admin/Users";
+import AdminLayout from "./layouts/AdminLayout";
+import MainLayout from "./layouts/MainLayout";
 
 // Local
 function App() {
@@ -32,18 +34,22 @@ function AppRoutes() {
       <Route path="/login" element={<LoginPage />} />
 
       {/* user */}
-      <Route path="/chat" element={<ChatPage />} />
+      <Route element={<MainLayout />}>
+      <Route path="chat" element={<ChatPage />} />
 
       {/* Dùng để xem thông tin của bản thân */}
-      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="profile" element={<ProfilePage />} />
 
       {/* Dùng để xem profile user của người khác */}
-      <Route path="/users/:id" element={<UserProfile />} />
+      <Route path="users/:id" element={<UserProfile />} />
+      </Route>
 
       {/* admin */}
-      <Route path="/admin/dashboard" element={<DashboardAdminPage />} />
-      <Route path="/admin/messages" element={<MessagesAdminPage />} />
-      <Route path="/admin/users" element={<UsersAdminPage />} />
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route path="dashboard" element={<DashboardAdminPage />} />
+        <Route path="messages" element={<MessagesAdminPage />} />
+        <Route path="users" element={<UsersAdminPage />} />
+      </Route>
     </Routes>
   );
 }

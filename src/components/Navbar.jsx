@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+// Sau này sẽ tạo ra 2 navbar riêng cho 2 layout là main layout và admin layout
 export default function Navbar(){
     return (
         <div className="navbar">
