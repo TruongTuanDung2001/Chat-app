@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 //
-import Navbar from "./components/Navbar";
+import MainNavbar from "./components/MainNavbar";
 //
 import LoginPage from "./pages/Login/Login";
 import ChatPage from "./pages/Chat/Chat";
@@ -18,7 +18,7 @@ import MainLayout from "./layouts/MainLayout";
 function App() {
   return (
     <div>
-      <Navbar />
+      <MainNavbar />
       <h1 className="text-2xl font-bold text-blue-600">Hello World!</h1>
 
       {/* pages */}
