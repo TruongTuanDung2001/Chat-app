@@ -49,12 +49,22 @@ export default function MainNavbar() {
           {openProfile && (
             <ul className="absolute top-full right-0 mt-2 w-32 rounded-md bg-slate-600 p-2 shadow-lg">
               <li>
-                <Link className=" block w-full rounded px-3 py-1 hover:bg-slate-500" to="/profile" onClick={() => setOpenProfile(false)}>
+                <Link
+                  className=" block w-full rounded px-3 py-1 hover:bg-slate-500"
+                  to="/profile"
+                  onClick={() => setOpenProfile(false)}
+                >
                   Profile
                 </Link>
               </li>
               <li>
-                <Link className=" block w-full rounded px-3 py-1 hover:bg-slate-500" to="/logout" onClick={() => setOpenProfile(false)}>Logout</Link>
+                <Link
+                  className=" block w-full rounded px-3 py-1 hover:bg-slate-500"
+                  to="/logout"
+                  onClick={() => setOpenProfile(false)}
+                >
+                  Logout
+                </Link>
               </li>
             </ul>
           )}
