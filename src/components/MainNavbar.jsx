@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 
 // Sau này sẽ tạo ra 2 navbar riêng cho 2 layout là main layout và admin layout
 export default function MainNavbar() {
-  const [openProfile, setOpenProfile] = useState(true);
+  const [openProfile, setOpenProfile] = useState(false);
   const [user, setUser] = useState("");
-  //   setUser("ToiDoDaDen 🙉");
-  //
   return (
     <div className="main-navbar bg-slate-700 text-white">
       <ul className="flex justify-center gap-10 p-4 items-center ">
@@ -22,7 +20,7 @@ export default function MainNavbar() {
           <Link to="/chat">Chat</Link>
         </li>
         <li>
-          <Link to="/users">Users</Link>
+          <Link to="/users/1">Users</Link>
         </li>
         <li className="relative">
           {/* cái button thêm vào mà không thấy nút mà thấy bình thường là tại vì tailwind đã reset css button rồi
@@ -36,7 +34,6 @@ export default function MainNavbar() {
             className="flex items-center gap-1 cursor-pointer"
             onClick={() => setOpenProfile(!openProfile)}
           >
-            {console.log(openProfile)}
             ToiDoDaDen 🙉
             <span
               className={`transition-transform ${openProfile ? "rotate-180" : ""}`}

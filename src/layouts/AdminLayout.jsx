@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import MainNavbar from "../components/MainNavbar";
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function AdminLayout(){
     return (
         <div className="admin-layout">
-            <MainNavbar />
+            <AdminNavbar />
 
             <Outlet />
         </div>
