@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 // Sau này sẽ tạo ra 2 navbar riêng cho 2 layout là main layout và admin layout
 export default function MainNavbar() {
   const [openProfile, setOpenProfile] = useState(false);
   const [user, setUser] = useState("");
-  return (
+
+  //test
+  const { currentUser, isLoggedIn} = useContext(AuthContext);
+  console.log(currentUser);
+  console.log(isLoggedIn);
+  
+  return ( 
     <div className="main-navbar bg-slate-700 text-white">
       <ul className="flex justify-center gap-10 p-4 items-center ">
         <div className="flex items-center gap-1">
