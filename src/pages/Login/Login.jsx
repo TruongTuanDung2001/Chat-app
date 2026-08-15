@@ -1,4 +1,24 @@
+import { useState } from "react";
+import { getUsers } from "../../api/api";
+
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    //
+    const usersData = await getUsers();
+    console.log(usersData);
+    //
+    const foundUser = usersData.find(
+      (user) => user.email === email && user.password === password,
+    );
+
+    if (foundUser) console.log("Login success");
+    else console.log("Email or password is fails");
+  }
+
   return (
     <div className="login-layout min-h-screen w-full bg-blue-400 flex items-center justify-center">
       <div className="login-content w-full max-w-md border-2 border-solid border-white rounded p-6">
@@ -13,17 +33,29 @@ export default function LoginPage() {
           </div>
           <h1 className="text-2xl font-bold p-5">Welcome back</h1>
         </div>
-        <div className="">
+        <form onSubmit={handleSubmit}>
           <div className="email">
             <span className="block mb-1">Email:</span>
-            <input type="email" className="w-full rounded-md border border-gray-300 bg-white px-2 py-1 outline-none" />
+            <input
+              type="email"
+              className="w-full rounded-md border border-gray-300 bg-white px-2 py-1 outline-none"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div className="password mt-4">
             <span className="block mb-1">Password:</span>
-            <input type="password" className="w-full rounded-md border border-gray-300 bg-white px-2 py-1 outline-none" />
+            <input
+              type="password"
+              className="w-full rounded-md border border-gray-300 bg-white px-2 py-1 outline-none"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-          <button className="mt-5 w-full rounded-md bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 cursor-pointer">Login</button>
-        </div>
+          <button className="mt-5 w-full rounded-md bg-blue-600 text-white px-4 py-2 hover:bg-blue-700 cursor-pointer">
+            Login
+          </button>
+        </form>
       </div>
     </div>
   );
