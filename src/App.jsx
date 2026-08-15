@@ -22,7 +22,8 @@ function App() {
     <div>
       {/* <MainNavbar /> */}
       <Link to="/chat">Chat</Link> <br />
-      <Link to="/admin">Admin layout</Link>
+      <Link to="/admin">Admin layout</Link> <br />
+      <Link to="/login">Login</Link>
       {/* <h1 className="text-2xl font-bold text-blue-600">Hello World!</h1> */}
       {/* pages */}
       <AppRoutes />
