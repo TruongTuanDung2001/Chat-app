@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { getUsers } from "../../api/api";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // Navigate
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -15,7 +19,7 @@ export default function LoginPage() {
       (user) => user.email === email && user.password === password,
     );
 
-    if (foundUser) console.log("Login success");
+    if (foundUser) navigate("/chat");
     else console.log("Email or password is fails");
   }
 
