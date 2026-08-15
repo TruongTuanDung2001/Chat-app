@@ -19,7 +19,13 @@ export default function LoginPage() {
       (user) => user.email === email && user.password === password,
     );
 
-    if (foundUser) navigate("/chat");
+    if (foundUser){
+        // tại sao không lưu là foundUser mà lại thêm JSON.stringify làm gì ?
+        // vì foundUser là object {} mà localStorage chỉ lưu string nên mình phải chuyển lại nha.
+        // nếu sau này getItem muốn lấy lại là object thì dùng JSON.parse(...)
+        localStorage.setItem("currentUser", JSON.stringify(foundUser));
+        navigate("/chat");
+    }
     else console.log("Email or password is fails");
   }
 
