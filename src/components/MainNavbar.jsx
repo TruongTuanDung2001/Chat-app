@@ -8,9 +8,10 @@ export default function MainNavbar() {
   const [user, setUser] = useState("");
 
   //test
-  const { currentUser, isLoggedIn} = useContext(AuthContext);
+  const { currentUser, isLoggedIn, logout} = useContext(AuthContext);
   console.log(currentUser);
   console.log(isLoggedIn);
+  console.log(logout);
   
   return ( 
     <div className="main-navbar bg-slate-700 text-white">
@@ -41,7 +42,11 @@ export default function MainNavbar() {
             className="flex items-center gap-1 cursor-pointer"
             onClick={() => setOpenProfile(!openProfile)}
           >
-            ToiDoDaDen 🙉
+            {currentUser ? (
+              <span>{currentUser.name} 🙉</span>
+            ) : (
+              <Link to="/login">Login</Link>
+            )} 
             <span
               className={`transition-transform ${openProfile ? "rotate-180" : ""}`}
             >
@@ -62,13 +67,16 @@ export default function MainNavbar() {
                 </Link>
               </li>
               <li>
-                <Link
+                {/* <Link
                   className=" block w-full rounded px-3 py-1 hover:bg-slate-500"
                   to="/logout"
                   onClick={() => setOpenProfile(false)}
                 >
                   Logout
-                </Link>
+                </Link> */}
+                <button onClick={logout} className="w-full px-3 py-1 hover:bg-slate-500 text-left rounded">
+                  Logout
+                </button>
               </li>
             </ul>
           )}

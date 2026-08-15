@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext(null);
-
 /**
       <BrowserRouter>
     <AuthProvider>
@@ -28,6 +28,7 @@ const AuthContext = createContext(null);
     
  */
 function AuthProvider({ children }) {
+  const navigate = useNavigate();
   // Cách dùng useState ở dưới là: Lazy initialization của useState — dùng khi giá trị initial cần được tính/lấy từ đâu đó.
   // Dùng như v để khi render lần đầu thì currentUser đã có giá trị đúng, nếu setCurrentUser sẽ phải render lại nhiều lần
   const [currentUser, setCurrentUser] = useState(() => {
@@ -50,8 +51,17 @@ function AuthProvider({ children }) {
     - setCurrentUser là hàm dùng để thay đổi currentUser. vd: nếu là logout thì localStorage remove cái currentUser và setCurrentUser lại là null, hiện tại làm như v, sau này đẹp hơn sẽ dùng cách khác gọn hơn
 
   */
+
+  // Logout
+  function logout() {
+    localStorage.removeItem("currentUser");
+    setCurrentUser(null);
+    navigate("/login");
+  }
   return (
-    <AuthContext.Provider value={{ currentUser, setCurrentUser, isLoggedIn }}>
+    <AuthContext.Provider
+      value={{ currentUser, setCurrentUser, isLoggedIn, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

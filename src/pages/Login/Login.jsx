@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { getUsers } from "../../api/api";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // Context
+  const { setCurrentUser } = useContext(AuthContext);
 
   // Navigate
   const navigate = useNavigate();
@@ -24,6 +28,7 @@ export default function LoginPage() {
         // vì foundUser là object {} mà localStorage chỉ lưu string nên mình phải chuyển lại nha.
         // nếu sau này getItem muốn lấy lại là object thì dùng JSON.parse(...)
         localStorage.setItem("currentUser", JSON.stringify(foundUser));
+        setCurrentUser(foundUser);
         navigate("/chat");
     }
     else console.log("Email or password is fails");
