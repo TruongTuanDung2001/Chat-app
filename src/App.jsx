@@ -15,6 +15,7 @@ import UsersAdminPage from "./pages/Admin/Users";
 import AdminLayout from "./layouts/AdminLayout";
 import MainLayout from "./layouts/MainLayout";
 import Users from "./pages/Users/Users";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 // Local
 function App() {
@@ -38,18 +39,19 @@ function AppRoutes() {
       <Route path="/login" element={<LoginPage />} />
 
       {/* user */}
-      <Route path="/" element={<MainLayout />}>
-        <Route index element={<Navigate to="/chat" replace/> } />
-        <Route path="chat" element={<ChatPage />} />
-        {/* Dùng để xem thông tin của bản thân */}
-        <Route path="profile" element={<ProfilePage />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Navigate to="/chat" replace />} />
+          <Route path="chat" element={<ChatPage />} />
+          {/* Dùng để xem thông tin của bản thân */}
+          <Route path="profile" element={<ProfilePage />} />
 
-        {/* Dùng để xem danh sách tất cả users, xem thôi kh được chỉnh sửa */}
-        <Route path="users" element={<Users />} />
+          {/* Dùng để xem danh sách tất cả users, xem thôi kh được chỉnh sửa */}
+          <Route path="users" element={<Users />} />
 
-        {/* Dùng để xem profile 1 user trong danh sách users ở trên theo id user*/}
-        <Route path="users/:id" element={<UserProfile />} />
-
+          {/* Dùng để xem profile 1 user trong danh sách users ở trên theo id user*/}
+          <Route path="users/:id" element={<UserProfile />} />
+        </Route>
       </Route>
 
       {/* admin */}
