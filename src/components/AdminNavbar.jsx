@@ -17,7 +17,7 @@ export default function AdminNavbar() {
         <ul className="actions mt-6 space-y-4">
           <li>
             <Link
-              to="/dashboard"
+              to="/admin/dashboard"
               className="block rounded px-4 py-2 hover:bg-slate-500"
             >
               Dashboard
@@ -25,7 +25,7 @@ export default function AdminNavbar() {
           </li>
           <li>
             <Link
-              to="/users"
+              to="/admin/users"
               className="block rounded px-4 py-2 hover:bg-slate-500"
             >
               Users
@@ -33,7 +33,7 @@ export default function AdminNavbar() {
           </li>
           <li>
             <Link
-              to="/messages"
+              to="/admin/messages"
               className="block rounded px-4 py-2 hover:bg-slate-500"
             >
               Messages

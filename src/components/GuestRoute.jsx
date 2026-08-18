@@ -8,3 +8,4 @@ export default function GuestRoute(){
     if(isLoggedIn) return <Navigate to="/chat" replace/>
     return  <Outlet />
 }
+

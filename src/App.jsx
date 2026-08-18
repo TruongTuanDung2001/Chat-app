@@ -17,6 +17,7 @@ import MainLayout from "./layouts/MainLayout";
 import Users from "./pages/Users/Users";
 import ProtectedRoute from "./components/ProtectedRoute";
 import GuestRoute from "./components/GuestRoute";
+import AdminRoute from "./components/AdminRoute";
 
 // Local
 function App() {
@@ -58,10 +59,12 @@ function AppRoutes() {
       </Route>
 
       {/* admin */}
-      <Route path="/admin" element={<AdminLayout />}>
-        <Route path="dashboard" element={<DashboardAdminPage />} />
-        <Route path="messages" element={<MessagesAdminPage />} />
-        <Route path="users" element={<UsersAdminPage />} />
+      <Route element={<AdminRoute />}>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<DashboardAdminPage />} />
+          <Route path="messages" element={<MessagesAdminPage />} />
+          <Route path="users" element={<UsersAdminPage />} />
+        </Route>
       </Route>
     </Routes>
   );
