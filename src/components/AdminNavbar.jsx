@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 //
 export default function AdminNavbar() {
+  const { logout } = useContext(AuthContext);
   return (
     <div className="admin-navbar min-h-screen w-56 bg-slate-700 text-white  fixed left-0 top-0 z-10">
       <div className="sideBar flex min-h-screen flex-col p-4 w-full">
@@ -42,12 +45,13 @@ export default function AdminNavbar() {
         </ul>
 
         <div className="logout mt-auto ">
-          <Link
+          {/* <Link
             to="/logout"
             className="block rounded px-4 py-2 bg-red-500 hover:bg-red-600"
           >
             Logout
-          </Link>
+          </Link> */}
+          <button onClick={logout} className="block w-full rounded px-4 py-2 bg-red-500 hover:bg-red-600">Logout</button>
         </div>
       </div>
       {/* 
