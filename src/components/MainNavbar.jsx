@@ -9,10 +9,6 @@ export default function MainNavbar() {
 
   //test
   const { currentUser, isLoggedIn, logout} = useContext(AuthContext);
-  console.log(currentUser);
-  console.log(isLoggedIn);
-  console.log(logout);
-  
   return ( 
     <div className="main-navbar bg-slate-700 text-white">
       <ul className="flex justify-center gap-10 p-4 items-center ">

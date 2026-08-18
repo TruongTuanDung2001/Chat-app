@@ -29,7 +29,7 @@ export default function LoginPage() {
         // nếu sau này getItem muốn lấy lại là object thì dùng JSON.parse(...)
         localStorage.setItem("currentUser", JSON.stringify(foundUser));
         setCurrentUser(foundUser);
-        navigate("/chat");
+        // navigate("/chat"); không cần nữa vì đã sử lý trong file GuestRoute
     }
     else console.log("Email or password is fails");
   }
