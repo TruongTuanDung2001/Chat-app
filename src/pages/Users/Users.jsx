@@ -8,8 +8,6 @@ export default function Users() {
     async function fetchUsers() {
       try {
         const data = await getUsers();
-        console.log(data);
-        
         if (!data) return;
         setUsers(data);
       } catch (error) {
