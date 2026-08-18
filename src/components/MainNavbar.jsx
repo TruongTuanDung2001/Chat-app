@@ -26,6 +26,9 @@ export default function MainNavbar() {
         <li>
           <Link to="/users/1">Users</Link>
         </li>
+        <li>
+          <Link to="/users">All Users</Link>
+        </li>
         <li className="relative">
           {/* cái button thêm vào mà không thấy nút mà thấy bình thường là tại vì tailwind đã reset css button rồi
                 background-color: transparent;
